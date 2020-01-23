@@ -73,3 +73,34 @@ SUBROUTINE DAXPY(n, alpha, x, incx, y, incy)
      END IF
      RETURN ! terminate the function
 END SUBROUTINE DAXPY
+
+! Testing program for the above subroutine
+program DAXPY_Test
+real, dimension(5) :: x
+real, dimension(5) :: y
+integer :: n, incx, incy
+real :: alpha
+
+n = 5
+incx = 1
+incy = 1
+alpha = 2.00
+x = (/1.0, 1.0, 1.0, 1.0, 1.0 /)
+y = (/1.0, 2.0, 3.0, 4.0, 5.0 /)
+
+! Print the values of Y before calling DAXPY
+Print *, "Y before DAXPY:"
+do i = 1, 5
+     Print *, y(i)
+end do
+
+call DAXPY(n, alpha, x, incx, y, incy)
+
+Print *, "Y after DAXPY:"
+! Print the values of Y after calling DAXPY
+do i = 1, 5
+     Print *, y(i)
+end do
+
+stop
+end
