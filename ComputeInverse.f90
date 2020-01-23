@@ -49,3 +49,34 @@ SUBROUTINE MATRIX_INVERSE(A, Ainv, n)
      END IF
      RETURN ! Terminate the function
 END SUBROUTINE MATRIX_INVERSE
+
+
+program Compute_Inverse
+REAL, dimension(3,3) :: A
+REAL, dimension(3,3) :: Ainv
+INTEGER :: n
+
+n = 3
+A = reshape((/ 1, 2, 3, 4, 5, 6, 7, 8, 9 /), shape(A))
+
+Print *,"Matrix A:"
+do i = 1,n
+     do j = 1,n
+          Print *, A(i,j)
+     end do
+
+end do 
+
+call MATRIX_INVERSION(A, Ainv, n)
+
+Print *,"Matrix Ainv:"
+do i = 1,n
+     do j = 1,n
+          Print *, Ainv(i,j)
+     end do
+
+end do
+
+
+stop
+end

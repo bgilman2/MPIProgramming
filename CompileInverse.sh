@@ -5,5 +5,7 @@ module load ncarcompilers/0.5.0
 module load mpt/2.19
 module load netcdf/4.7.3
 module list
-ifort -o DAXPY.exe DAXPY.f90
-./DAXPY.exe
+ifort -o Inverse.exe ComputeInverse.f90
+./Inverse.exe
+~
+
