@@ -16,9 +16,9 @@
 ! DGETRI: http://www.netlib.org/lapack/explore-html/dd/d9a/group__double_g_ecomputational_ga56d9c860ce4ce42ded7f914fdb0683ff.html
 
 SUBROUTINE MATRIX_INVERSE(A, Ainv, n)
+     INTEGER,  intent(in) :: n ! Dimension of the matrix
      REAL, dimension(n,n), intent(in) :: A ! Input matrix A
      REAL, dimension(n,n), intent(out) :: Ainv ! Inverse matrix of A
-     INTEGER,  intent(in) :: n ! Dimension of the matrix
 
      ! Variables for the LAPACK inverse function
      REAL, dimension(size(A,1)) :: work ! Work Array
@@ -52,12 +52,15 @@ END SUBROUTINE MATRIX_INVERSE
 
 
 program Compute_Inverse
+INTEGER :: n
 REAL, dimension(4,4) :: A
 REAL, dimension(4,4) :: Ainv
-INTEGER :: n
 
 n = 4
-A = reshape((/ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 , 13, 14, 15 , 16 /), shape(A))
+
+!A = reshape((/ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 , 13, 14, 15 , 16 /), shape(A))
+A = reshape((/ 5,6,6,8,2,2,2,8,6,6,2,8,2,3,6,7/), shape(A))
+!A = reshape((/ 1, 2, 3, 4, 5, 6, 7, 8, 9 /), shape(A))
 
 Print *,"Matrix A:"
 Print *,A 
